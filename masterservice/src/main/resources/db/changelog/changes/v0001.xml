@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="Odenktools" id="id_seq">
+        <createTable tableName="id_seq">
+            <column autoIncrement="false" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Odenktools" id="products">
+        <createTable tableName="products">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" unique="true" primaryKeyName="product_pkey" nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="write_id" type="BIGINT">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="product_name" remarks="product name (Cannot edited)" type="VARCHAR(100)"/>
+            <column name="sku" remarks="(Cannot edited)" type="VARCHAR(100)"/>
+            <column name="stock_status" remarks="Stock status (available, outofstock, preorder)" type="VARCHAR(25)"/>
+            <column name="quantity" defaultValueNumeric="0" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="thumbnail_image_url" remarks="Photo url images" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="short_description" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="long_description" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0.00" name="price" remarks="Price" type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_active" defaultValueNumeric="1" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_deleted" defaultValueNumeric="0" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="created_at" defaultValueComputed="CURRENT_TIMESTAMP" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Odenktools" id="hibernate_sequence" dbms="oracle,postgresql">
+        <createSequence sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+
+</databaseChangeLog>

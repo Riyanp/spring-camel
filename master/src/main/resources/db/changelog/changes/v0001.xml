@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="Odenktools" id="groups">
+        <createTable tableName="groups">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" unique="true" primaryKeyName="group_pkey" nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="write_id" type="BIGINT">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="group_name" type="VARCHAR(100)"/>
+            <column name="code" type="VARCHAR(100)"/>
+            <column name="created_at" defaultValueComputed="CURRENT_TIMESTAMP" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="is_deleted" type="INT"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Odenktools" id="customer_groups">
+        <createTable tableName="customer_groups">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" unique="true" primaryKeyName="customer_group_pkey" nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="write_id" type="BIGINT">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="VARCHAR(255)">
+                <constraints primaryKey="false" nullable="false" unique="false"/>
+            </column>
+            <column name="group_id" type="VARCHAR(255)">
+                <constraints primaryKey="false" nullable="false" unique="false"/>
+            </column>
+            <column name="created_at" defaultValueComputed="CURRENT_TIMESTAMP" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Odenktools" id="hibernate_sequence" dbms="oracle,postgresql">
+        <createSequence sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="Odenktools" id="id_seq">
+        <createTable tableName="id_seq">
+            <column autoIncrement="false" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Odenktools" id="cart">
+        <createTable tableName="cart">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" unique="true" primaryKeyName="cart_pkey"/>
+            </column>
+            <column autoIncrement="true" name="write_id" type="BIGINT">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_email" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="date_created" defaultValueComputed="CURRENT_TIMESTAMP" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" defaultValueComputed="CURRENT_TIMESTAMP" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Odenktools" id="cart_item">
+        <createTable tableName="cart_item">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" unique="true" primaryKeyName="cart_item_pkey"/>
+            </column>
+            <column autoIncrement="true" name="write_id" type="BIGINT">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="cart_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" defaultValueNumeric="0" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="date_created" defaultValueComputed="CURRENT_TIMESTAMP" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" defaultValueComputed="CURRENT_TIMESTAMP" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Odenktools" id="orders">
+        <createTable tableName="orders">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" unique="true" primaryKeyName="orders_pkey"/>
+            </column>
+            <column autoIncrement="true" name="write_id" type="BIGINT">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_email" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0.00"
+                    name="subtotal"
+                    remarks="SUM(order_items.row_total) where order_items.order_id = ?"
+                    type="DECIMAL(19,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="grand_total"
+                    remarks="subtotal + other_fee + unique_number + shipping_amount"
+                    defaultValueNumeric="0.00"
+                    type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_item_count" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="date_created" defaultValueComputed="CURRENT_TIMESTAMP" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" defaultValueComputed="CURRENT_TIMESTAMP" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Odenktools" id="order_items">
+        <createTable tableName="order_items">
+            <column name="id" type="VARCHAR(255)">
+                <constraints primaryKey="true" unique="true" primaryKeyName="order_items_pkey"/>
+            </column>
+            <column autoIncrement="true" name="write_id" type="BIGINT">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="order_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id"
+                    remarks="NULL jika ingin seperti go-pay"
+                    type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="qty" remarks="Nilai jumlah barang yang dibeli."
+                    defaultValueNumeric="0" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="original_price"
+                    defaultValueNumeric="0.00"
+                    remarks="Nilai barang murni tidak ada penambahan apapun."
+                    type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="row_total"
+                    defaultValueNumeric="0.00"
+                    remarks="Jika flat_rate = price_incl_fee + (interest_amount x tenor) - (discount_amount)"
+                    type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fixed_row_total"
+                    defaultValueNumeric="0.00"
+                    remarks="Nilai REAL barang setelah dikalikan jumlah tenor dan pembulatan dari total_per_month"
+                    type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="date_created" defaultValueComputed="CURRENT_TIMESTAMP" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" defaultValueComputed="CURRENT_TIMESTAMP" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Odenktools" id="hibernate_sequence" dbms="oracle,postgresql">
+        <createSequence sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+
+</databaseChangeLog>

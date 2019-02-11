@@ -1,0 +1,173 @@
+2019-02-07 13:32:25.595  INFO 6686 --- [restartedMain] c.o.p.ProductServiceApplication          : Starting ProductServiceApplication on Riyans-MacBook-Pro.local with PID 6686 (started by riyanpramana in /Users/riyanpramana/Work/MK V4/spring-camel/productservice)
+2019-02-07 13:32:25.598  INFO 6686 --- [restartedMain] c.o.p.ProductServiceApplication          : The following profiles are active: local
+2019-02-07 13:32:30.679  INFO 6686 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-02-07 13:32:31.208  INFO 6686 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3779fd31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-07 13:32:31.396  INFO 6686 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.camel.spring.boot.CamelAutoConfiguration' of type [org.apache.camel.spring.boot.CamelAutoConfiguration$$EnhancerBySpringCGLIB$$59a3c350] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-07 13:32:32.709  INFO 6686 --- [restartedMain] org.xnio                                 : XNIO version 3.3.8.Final
+2019-02-07 13:32:32.769  INFO 6686 --- [restartedMain] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2019-02-07 13:32:33.136  WARN 6686 --- [restartedMain] io.undertow.websockets.jsr               : UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2019-02-07 13:32:33.141  WARN 6686 --- [restartedMain] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2019-02-07 13:32:33.258  INFO 6686 --- [restartedMain] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2019-02-07 13:32:34.890  INFO 6686 --- [restartedMain] o.a.c.i.converter.DefaultTypeConverter   : Type converters loaded (core: 195, classpath: 7)
+2019-02-07 13:32:38.038  INFO 6686 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-02-07 13:32:39.439 ERROR 6686 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+org.postgresql.util.PSQLException: FATAL: database "odk_product_service" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2440) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2559) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:133) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:250) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:195) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:454) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.Driver.connect(Driver.java:256) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460) [HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534) [HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-2.7.9.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:385) [liquibase-core-3.5.5.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1753) [spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1690) [spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) [spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) [spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) [spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) [spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:304) [spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1087) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:548) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:386) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1242) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1230) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at com.odenktools.productservice.ProductServiceApplication.main(ProductServiceApplication.java:27) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_172]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_172]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_172]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_172]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+
+2019-02-07 13:32:39.443  WARN 6686 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: FATAL: database "odk_product_service" does not exist
+2019-02-07 13:32:39.483 ERROR 6686 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: FATAL: database "odk_product_service" does not exist
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1694) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:304) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1087) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:548) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:386) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1242) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1230) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at com.odenktools.productservice.ProductServiceApplication.main(ProductServiceApplication.java:27) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_172]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_172]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_172]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_172]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+Caused by: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: FATAL: database "odk_product_service" does not exist
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:390) ~[liquibase-core-3.5.5.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1753) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1690) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	... 23 common frames omitted
+Caused by: org.postgresql.util.PSQLException: FATAL: database "odk_product_service" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2440) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2559) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:133) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:250) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:195) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:454) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.Driver.connect(Driver.java:256) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-2.7.9.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:385) ~[liquibase-core-3.5.5.jar:na]
+	... 25 common frames omitted
+
+2019-02-07 13:37:02.417  INFO 6857 --- [restartedMain] c.o.p.ProductServiceApplication          : Starting ProductServiceApplication on Riyans-MacBook-Pro.local with PID 6857 (started by riyanpramana in /Users/riyanpramana/Work/MK V4/spring-camel/productservice)
+2019-02-07 13:37:02.424  INFO 6857 --- [restartedMain] c.o.p.ProductServiceApplication          : The following profiles are active: local
+2019-02-07 13:37:07.410  INFO 6857 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-02-07 13:37:07.833  INFO 6857 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$59bddc77] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-07 13:37:07.941  INFO 6857 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.apache.camel.spring.boot.CamelAutoConfiguration' of type [org.apache.camel.spring.boot.CamelAutoConfiguration$$EnhancerBySpringCGLIB$$7be7a296] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-07 13:37:09.001  INFO 6857 --- [restartedMain] org.xnio                                 : XNIO version 3.3.8.Final
+2019-02-07 13:37:09.036  INFO 6857 --- [restartedMain] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
+2019-02-07 13:37:09.322  WARN 6857 --- [restartedMain] io.undertow.websockets.jsr               : UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2019-02-07 13:37:09.323  WARN 6857 --- [restartedMain] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2019-02-07 13:37:09.389  INFO 6857 --- [restartedMain] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2019-02-07 13:37:10.459  INFO 6857 --- [restartedMain] o.a.c.i.converter.DefaultTypeConverter   : Type converters loaded (core: 195, classpath: 7)
+2019-02-07 13:37:13.300  INFO 6857 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-02-07 13:37:14.008  INFO 6857 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-02-07 13:37:14.962  INFO 6857 --- [restartedMain] liquibase                                : Successfully acquired change log lock
+2019-02-07 13:37:18.270  INFO 6857 --- [restartedMain] liquibase                                : Creating database history table with name: public.databasechangelog
+2019-02-07 13:37:18.403  INFO 6857 --- [restartedMain] liquibase                                : Reading from public.databasechangelog
+2019-02-07 13:37:18.711  INFO 6857 --- [restartedMain] liquibase                                : classpath:/db/changelog/db.changelog-master.yaml: db/changelog/changes/v0001.xml::id_seq::Odenktools: Table id_seq created
+2019-02-07 13:37:18.794  INFO 6857 --- [restartedMain] liquibase                                : classpath:/db/changelog/db.changelog-master.yaml: db/changelog/changes/v0001.xml::id_seq::Odenktools: ChangeSet db/changelog/changes/v0001.xml::id_seq::Odenktools ran successfully in 332ms
+2019-02-07 13:37:19.778  INFO 6857 --- [restartedMain] liquibase                                : classpath:/db/changelog/db.changelog-master.yaml: db/changelog/changes/v0001.xml::products::Odenktools: Table products created
+2019-02-07 13:37:19.779  INFO 6857 --- [restartedMain] liquibase                                : classpath:/db/changelog/db.changelog-master.yaml: db/changelog/changes/v0001.xml::products::Odenktools: ChangeSet db/changelog/changes/v0001.xml::products::Odenktools ran successfully in 253ms
+2019-02-07 13:37:19.791  INFO 6857 --- [restartedMain] liquibase                                : classpath:/db/changelog/db.changelog-master.yaml: db/changelog/changes/v0001.xml::hibernate_sequence::Odenktools: Sequence hibernate_sequence created
+2019-02-07 13:37:19.792  INFO 6857 --- [restartedMain] liquibase                                : classpath:/db/changelog/db.changelog-master.yaml: db/changelog/changes/v0001.xml::hibernate_sequence::Odenktools: ChangeSet db/changelog/changes/v0001.xml::hibernate_sequence::Odenktools ran successfully in 4ms
+2019-02-07 13:37:19.806  INFO 6857 --- [restartedMain] liquibase                                : Successfully released change log lock
+2019-02-07 13:37:20.116  INFO 6857 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-02-07 13:37:20.152  INFO 6857 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-02-07 13:37:20.351  INFO 6857 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2019-02-07 13:37:20.354  INFO 6857 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-02-07 13:37:20.484  INFO 6857 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-02-07 13:37:20.860  INFO 6857 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2019-02-07 13:37:20.894  INFO 6857 --- [restartedMain] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000422: Disabling contextual LOB creation as connection was null
+2019-02-07 13:37:20.898  INFO 6857 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@44e09ade
+2019-02-07 13:37:23.124  INFO 6857 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-07 13:37:28.865  WARN 6857 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2019-02-07 13:37:29.407  INFO 6857 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-02-07 13:37:29.418  INFO 6857 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-02-07 13:37:29.445  INFO 6857 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-02-07 13:37:29.486  INFO 6857 --- [restartedMain] o.a.camel.spring.boot.RoutesCollector    : Loading additional Camel XML routes from: classpath:camel/*.xml
+2019-02-07 13:37:29.488  INFO 6857 --- [restartedMain] o.a.camel.spring.boot.RoutesCollector    : Loading additional Camel XML rests from: classpath:camel-rest/*.xml
+2019-02-07 13:37:29.491  INFO 6857 --- [restartedMain] o.a.camel.spring.SpringCamelContext      : Apache Camel 2.23.0 (CamelContext: camel-1) is starting
+2019-02-07 13:37:29.494  INFO 6857 --- [restartedMain] o.a.c.m.ManagedManagementStrategy        : JMX is enabled
+2019-02-07 13:37:29.867  INFO 6857 --- [restartedMain] o.a.camel.spring.SpringCamelContext      : StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2019-02-07 13:37:29.872  INFO 6857 --- [restartedMain] o.a.camel.spring.SpringCamelContext      : Total 0 routes, of which 0 are started
+2019-02-07 13:37:29.874  INFO 6857 --- [restartedMain] o.a.camel.spring.SpringCamelContext      : Apache Camel 2.23.0 (CamelContext: camel-1) started in 0.381 seconds
+2019-02-07 13:37:29.915  INFO 6857 --- [restartedMain] o.a.c.c.s.CamelHttpTransportServlet      : Initialized CamelHttpTransportServlet[name=CamelServlet, contextPath=]
+2019-02-07 13:37:30.124  INFO 6857 --- [restartedMain] c.o.p.ProductServiceApplication          : Started ProductServiceApplication in 30.032 seconds (JVM running for 31.144)
+2019-02-07 13:37:30.138  INFO 6857 --- [restartedMain] c.o.p.ProductServiceApplication          : APPLICATION IS RUNNING!
+2019-02-07 13:39:39.306  INFO 6857 --- [XNIO-2 task-1] io.undertow.servlet                      : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-02-07 13:39:40.310  INFO 6857 --- [XNIO-2 task-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-02-07 13:39:41.102  INFO 6857 --- [XNIO-2 task-1] c.o.p.controllers.ProductController      : HITTING PRODUCT_LIST PAGE =[0], SIZE 10
+2019-02-07 13:51:12.047  INFO 6857 --- [Thread-9] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2019-02-07 13:51:12.068  INFO 6857 --- [Thread-9] o.a.camel.spring.SpringCamelContext      : Apache Camel 2.23.0 (CamelContext: camel-1) is shutting down
+2019-02-07 13:51:12.118  INFO 6857 --- [Thread-9] o.a.camel.spring.SpringCamelContext      : Apache Camel 2.23.0 (CamelContext: camel-1) uptime 13 minutes
+2019-02-07 13:51:12.118  INFO 6857 --- [Thread-9] o.a.camel.spring.SpringCamelContext      : Apache Camel 2.23.0 (CamelContext: camel-1) is shutdown in 0.051 seconds
+2019-02-07 13:51:12.126  INFO 6857 --- [Thread-9] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-02-07 13:51:12.132  INFO 6857 --- [Thread-9] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2019-02-07 13:51:12.148  INFO 6857 --- [Thread-9] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-02-07 13:51:12.165  INFO 6857 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-02-07 13:51:12.170  INFO 6857 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-02-07 13:51:12.204  INFO 6857 --- [Thread-9] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2019-02-07 13:51:12.207  INFO 6857 --- [Thread-9] o.a.c.c.s.CamelHttpTransportServlet      : Destroyed CamelHttpTransportServlet[CamelServlet]
